@@ -34,10 +34,12 @@ class Quotebox extends React.Component {
     render() {
         return (
             <div id="quote-box">
-                <h3 id="text">{this.state.quote}</h3>
-                <h5 id="author">- {this.state.author}</h5>
-                <button id="new-quote" onClick={this.displayNewQuote}>New Quote</button>
-                <a id="tweet-quote" href={"https://twitter.com/intent/tweet?text=%22" + this.state.quote + "%22%20-%20" + this.state.author}>Tweet Quote</a>
+                <div class="quote-box-contents">
+                    <h3 id="text">"{this.state.quote}"</h3>
+                    <h5 id="author">- {this.state.author}</h5>
+                    <button id="new-quote" onClick={this.displayNewQuote}>New Quote</button>
+                    <a id="tweet-quote" href={"https://twitter.com/intent/tweet?text=%22" + this.state.quote + "%22%20-%20" + this.state.author}>Tweet Quote</a>
+                </div>
             </div>
         )
     }
