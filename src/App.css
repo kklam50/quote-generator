@@ -1,9 +1,5 @@
-.App {
-  color: white;
-}
-
 #quote-box {
-  background-color: black;
+  background-color: white;
   width: 50vw;
   height: 50vh;
   display: flex;
@@ -11,4 +7,31 @@
   align-items: center;
   text-align: center;
   transform: translate(50%, 50%);
+  border-radius: 0.5rem;
+  border-color: black;
+  border-width: 1px;
+}
+
+#new-quote {
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+#action-button-contianer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-box-contents {
+  margin: 2rem;
+}
+
+.tweet-quote {
+  margin: 1rem;
+}
+
+#text, #author{
+  transition: color 1s ease-in-out;
 }

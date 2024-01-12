@@ -18,27 +18,39 @@ class Quotebox extends React.Component {
         this.displayNewQuote = this.displayNewQuote.bind(this);
     }
 
+    componentDidMount() {
+        this.changeBackground();
+    }
+
     getNewQuote() {
         return this.quotes[Math.floor(Math.random() * this.quotes.length)];
     }
 
     displayNewQuote() {
         var newQuote = this.getNewQuote();
-        console.log(newQuote);
         this.setState({
             quote: newQuote[0],
             author: newQuote[1]
         })
+        this.changeBackground();
+    }
+
+    changeBackground() {
+        let background = "#" + ((1<<24)*Math.random() | 0).toString(16);
+        document.body.style.backgroundColor = background;
+        this.setState({background});
     }
 
     render() {
         return (
             <div id="quote-box">
                 <div class="quote-box-contents">
-                    <h3 id="text">"{this.state.quote}"</h3>
-                    <h5 id="author">- {this.state.author}</h5>
-                    <button id="new-quote" onClick={this.displayNewQuote}>New Quote</button>
-                    <a id="tweet-quote" href={"https://twitter.com/intent/tweet?text=%22" + this.state.quote + "%22%20-%20" + this.state.author}>Tweet Quote</a>
+                    <h3 id="text" style={{color: this.state.background}}>"{this.state.quote}"</h3>
+                    <h5 id="author"  style={{color: this.state.background}}>- {this.state.author}</h5>
+                    <div id="action-button-contianer"> 
+                        <button id="new-quote" onClick={this.displayNewQuote}>New Quote</button>
+                        <a id="tweet-quote" href={"https://twitter.com/intent/tweet?text=%22" + this.state.quote + "%22%20-%20" + this.state.author}>Tweet Quote</a>
+                    </div>
                 </div>
             </div>
         )
