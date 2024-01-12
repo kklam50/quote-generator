@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons';
 
 class Quotebox extends React.Component {
     constructor(props) {
@@ -16,6 +18,7 @@ class Quotebox extends React.Component {
             author: newQuote[1]
         }
         this.displayNewQuote = this.displayNewQuote.bind(this);
+        document.body.style.transitionDuration = "0.5s";
     }
 
     componentDidMount() {
@@ -45,11 +48,14 @@ class Quotebox extends React.Component {
         return (
             <div id="quote-box">
                 <div class="quote-box-contents">
-                    <h3 id="text" style={{color: this.state.background}}>"{this.state.quote}"</h3>
-                    <h5 id="author"  style={{color: this.state.background}}>- {this.state.author}</h5>
+                    <h2 id="text" style={{color: this.state.background}}>"{this.state.quote}"</h2>
+                    <h3 id="author"  style={{color: this.state.background}}>- {this.state.author}</h3>
                     <div id="action-button-contianer"> 
-                        <button id="new-quote" onClick={this.displayNewQuote}>New Quote</button>
-                        <a id="tweet-quote" href={"https://twitter.com/intent/tweet?text=%22" + this.state.quote + "%22%20-%20" + this.state.author}>Tweet Quote</a>
+                        <button id="new-quote" style={{backgroundColor: this.state.background}} onClick={this.displayNewQuote}>New Quote</button>
+                        <div id="test">
+                            <FontAwesomeIcon icon={faTwitter} />
+                            <a id="tweet-quote" href={"https://twitter.com/intent/tweet?text=%22" + this.state.quote + "%22%20-%20" + this.state.author}>Tweet Quote</a>
+                        </div>
                     </div>
                 </div>
             </div>

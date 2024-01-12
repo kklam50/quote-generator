@@ -15,6 +15,17 @@
 #new-quote {
   border-radius: 10px;
   margin: 1rem;
+  border-width: 0px;
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: 0.5s ease-in-out;
+  background: linear-gradient(#0000, rgb(0 0 0/40%)) top/100% 800%;
+}
+
+#new-quote:hover {
+  cursor: pointer;
+  background-position: bottom;
 }
 
 #action-button-contianer {
@@ -33,5 +44,9 @@
 }
 
 #text, #author{
-  transition: color 1s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+#tweet-quote {
+  padding-left: 5px;
 }
